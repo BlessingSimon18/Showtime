@@ -17,8 +17,12 @@ export class MovieDetailsComponent implements OnInit{
   getMovieCastResult:any;
 
   ngOnInit(): void {
+    let getParam:any;
     let getParamId = this.router.snapshot.paramMap.get('id');
-    console.log(getParamId, 'getparamid#');
+    this.router.params.subscribe((param:any)=>{
+      getParam=param.id
+    })
+    console.log(getParam, 'getparamid#');
     
     this.getMovie(getParamId);
     this.getVideo(getParamId);
